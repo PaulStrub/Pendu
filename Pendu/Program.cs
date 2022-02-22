@@ -101,7 +101,7 @@ namespace Pendu
             string word = generateWords(int.Parse(lvl));
 
             char [] LetterInWord = initTab(word);
-            char[] NotLetterInWord = new char[26-LetterInWord.Length];
+            char[] NotLetterInWord = initNotLetterTab(LetterInWord);
 
             while (InGame == false) //play until the player win/lose the game
             {
@@ -110,14 +110,41 @@ namespace Pendu
             
         }
 
-        static string [] initTab(string word)
+        static char [] initTab(string word)
         {
-            char[] Tab;
-            Tab = word.ToCharArray();
-            for (int i = 0; i< word.Length; i++)
+            char[] LetterInWord;
+            LetterInWord = word.ToCharArray();
+            return LetterInWord;
+            
+        }
+
+        static char [] initNotLetterTab(char[] LetterInWord)
+        {
+            
+            int num = 26;
+            for (int i = 0; i < LetterInWord.Length; i++)
             {
-                
+                if (LetterInWord[i] == 0)
+                {
+
+                }
+                else
+                {
+                    char c = LetterInWord[i];
+                    num = num - 1;
+                    LetterInWord[i] = (char)0;
+                    for (int a =0; a < LetterInWord.Length; a++)
+                    {
+
+                    }
+                }
             }
+            return NotLetterInWord;
+        }
+
+        static bool PrintGame(char[] LetterInWord, char NotLetterInWord, string word, int Hp)
+        {
+
         }
         
     }
